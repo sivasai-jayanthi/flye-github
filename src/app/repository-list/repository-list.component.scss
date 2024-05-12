@@ -1,0 +1,10 @@
+/* repository-list.component.scss */
+.repository-list {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .repository-list.show {
+    opacity: 1;
+  }
+  

@@ -1,0 +1,116 @@
+.repo-container {
+    
+   //flex
+   }
+  
+  .repo-box {
+    background-color: #e0e5f1; /* Light blue background color */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+  }
+  
+  .repo-box a {
+    color: #0366d6; /* Blue link color */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .repo-box p {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .pagination {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .pagination ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pagination ul li {
+    display: inline;
+    margin-right: 5px;
+  }
+  
+  .pagination ul li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .pagination ul li a.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+    
+  /* .avatar{
+    width: 50px;
+    border-radius: 50%;
+  } */
+
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+   
+   
+  }
+  
+  .user-profile {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    
+  }
+  
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .repositories {
+    margin-top: 20px;
+  }
+  
+  
+  .loading, .error, .repo-loading, .empty-state {
+    margin-top: 20px;
+  }
+  
+  .error p, .empty-state p {
+    color: red;
+    display: none;
+  }
+  
+  .repositories {
+    margin-top: 20px;
+    opacity: 0; /* Initially hide the repository list */
+    transition: opacity 2s ease-in-out; /* Apply transition animation */
+  }
+  
+  .repositories.show {
+    opacity: 1; /* Show the repository list */
+  }
+  .fade-in {
+    animation: fadeInAnimation 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+    

@@ -1,0 +1,62 @@
+<div class="container">
+  <app-search (searchUsername)="onSearch($event)"></app-search>
+
+  <div *ngIf="loading" class="loading">
+    <!-- Loading indicator -->
+    <div class="spinner-border" role="status"></div>
+    <span>Loading...</span>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <!-- Error message -->
+    <p>{{ error }}</p>
+  </div>
+
+  <div *ngIf="user.login" class="user-profile">
+    <!-- User profile -->
+    <h2 style="font-size: large;"><strong>{{ user.name }}</strong>  </h2>
+    <div>
+      <img [src]="user.avatar_url" alt="Avatar" class="avatar">
+      
+    </div>
+    <div>
+
+    </div>
+    <div class="profile-details-div">
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Username:</strong> {{ user.login }}</p>
+      <p><strong>Location:</strong> {{ user.location }}</p>
+      <p><strong>Followers:</strong> {{ user.followers }}</p>
+      <p><strong>Following:</strong> {{ user.following }}</p>
+      <p><strong>Public Repositories:</strong> {{ user.public_repos }}</p>
+    </div>
+  </div>
+
+  
+
+  <div *ngIf="repositories.length > 0" class="repositories fade-in">
+    <!-- Repository list -->
+    <h2>Repositories</h2>
+    <div class="repo-container">
+      <div *ngFor="let repo of getPaginatedRepositories()" class="repo-box">
+        <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+        <p>{{ repo.description }}</p>
+        <p>Language: {{ repo.language }}</p>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <ul>
+        <li *ngFor="let page of getPageNumbers()">
+          <a href="#" (click)="onPageChange(page)" [class.active]="currentPage === page">{{ page }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngIf="repositories.length === 0 && !loading && !error" class="empty-state">
+    <!-- Empty state message -->
+    <p>No repositories found for the specified user.</p>
+  </div>
+</div>

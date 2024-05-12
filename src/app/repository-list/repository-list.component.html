@@ -1,0 +1,30 @@
+<div *ngIf="loading">
+    <!-- Skeleton loader or spinner -->
+  </div>
+  
+ 
+  <div *ngIf="repositories && repositories.length > 0">
+    <div *ngFor="let repo of repositories">
+      <h3>{{ repo.name }}</h3>
+      <p>{{ repo.description }}</p>
+      <p>Topics: {{ repo.topics.join(', ') }}</p>
+    </div>
+  
+  
+    <div>
+      <!-- Pagination controls -->
+      <select [(ngModel)]="pageSize">
+        <option value="10">10 per page</option>
+        <option value="20">20 per page</option>
+        <option value="50">50 per page</option>
+        <option value="100">100 per page</option>
+      </select>
+      <button (click)="nextPage()">Next</button>
+      <button (click)="prevPage()">Previous</button>
+    </div>
+  </div>
+  
+  <div *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+  
